@@ -1,22 +1,24 @@
-// To parse this JSON data, do
-//
-//     final pokemonResponse = pokemonResponseFromMap(jsonString);
-
-import 'dart:convert';
-
 import 'models.dart';
 
-class PokedexResponse {
-    PokedexResponse({
-        required this.pokemon,
-    });
+class Pokedex {
+  late List<Pokemon> pokemon;
 
-    List<Pokemon> pokemon;
+  Pokedex({required this.pokemon});
 
-    factory PokedexResponse.fromJson(String str) => PokedexResponse.fromMap(json.decode(str));
+  Pokedex.fromJson(Map<String, dynamic> json) {
+    if (json['pokemon'] != null) {
+      pokemon = <Pokemon>[];
+      json['pokemon'].forEach((v) {
+        pokemon.add(new Pokemon.fromJson(v));
+      });
+    }
+  }
 
-    factory PokedexResponse.fromMap(Map<String, dynamic> json) => PokedexResponse(
-        pokemon: List<Pokemon>.from(json["pokemon"].map((x) => Pokemon.fromMap(x))),
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.pokemon != null) {
+      data['pokemon'] = this.pokemon.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
-

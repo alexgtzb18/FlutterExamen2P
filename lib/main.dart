@@ -5,20 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'screens/screens.dart';
 
-void main() => runApp(AppState());
-
-class AppState extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => PokemonProvider(), lazy: false,)
-      ],
-      child: MyApp(),
-    );
-  }
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,8 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {
         'home': (_) => HomeScreen(),
-        'types': (_) => TypeScreen(),
-        'detail': (_) => PokemonDetailScreen(),
+        // 'types': (_) => TypeScreen(),
+        'detail': (_) => DetailScreen(),
         // 'login': (_) => LoginScreen(),
       },
       theme: ThemeData.light()

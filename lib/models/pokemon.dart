@@ -1,20 +1,20 @@
 class Pokemon {
-  int id;
-  String num;
-  String name;
-  String img;
-  List<String> type;
-  String height;
-  String weight;
+  late int id;
+  late String num;
+  late String name;
+  late String img;
+  late List<String> type;
+  late String height;
+  late String weight;
 
   Pokemon({
-    this.id,
-    this.num,
-    this.name,
-    this.img,
-    this.type,
-    this.height,
-    this.weight,
+    required this.id,
+    required this.num,
+    required this.name,
+    required this.img,
+    required this.type,
+    required this.height,
+    required this.weight,
   });
 
   Pokemon.fromJson(Map<String, dynamic> json) {
@@ -36,6 +36,7 @@ class Pokemon {
     data['type'] = this.type;
     data['height'] = this.height;
     data['weight'] = this.weight;
+
     return data;
   }
 }

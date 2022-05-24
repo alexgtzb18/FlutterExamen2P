@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardTile extends StatelessWidget {
-  final String tipo;
   final Color bgColor;
-  const CardTile({Key? key, required this.tipo, required this.bgColor})
+  const CardTile({Key? key, required this.bgColor})
       : super(key: key);
 
   @override
@@ -17,7 +16,7 @@ class CardTile extends StatelessWidget {
       child: ListTile(
         title: Padding(
           padding: const EdgeInsets.only(top: 30),
-          child: Text(tipo,
+          child: Text('',
               style: const TextStyle(
                   fontSize: 25,
                   color: Colors.white,
