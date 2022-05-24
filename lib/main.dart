@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pokeapp',
-      initialRoute: 'detail',
+      initialRoute: 'home',
       routes: {
         'home': (_) => HomeScreen(),
         'types': (_) => TypeScreen(),
